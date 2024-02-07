@@ -1,0 +1,27 @@
+version: '3.9'
+
+services:
+  mondo_db:
+    container_name: db_container
+    image: mongo:latest
+    restart: always
+    volumes:
+      - mondo_db:/data/db
+
+  api:
+    build: .
+    ports:
+      - "5000:8000"
+    environment:
+      PORT: 8000
+      MONGODB_URI: mongodb+srv://cluster0.ipslowf.mongodb.net/
+      DB_NAME: test
+      NAME: farhanachowdhury2152001
+    depends_on:
+      - mondo_db
+    volumes:
+      - mongo_db:/path/in/container
+
+volumes:
+  mondo_db: {}
+  mongo_db: {}
