@@ -12,3 +12,14 @@ export const addStaion=async(req,res)=>{
     }
 
 }
+export const getAllStation=async(req,res)=>{
+    try{
+        const data=await stationModel.find({}).sort({station_id:1});
+        res.status(200).json({stations:data});
+            
+    }
+    catch(error){
+        res.status(500).json(error);
+    }
+
+}
