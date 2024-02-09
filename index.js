@@ -3,7 +3,6 @@ import bodyParser from "body-parser"
 import Cors from 'cors'
 
 import Connection from "./database.js"
-
 import dotenv from 'dotenv'
 import router from "./src/Router/router.js"
 
