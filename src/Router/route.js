@@ -1,10 +1,5 @@
 import express from "express";
-import {
-    addBook,
-    update,
-    getByID,
-    getBook
-} from "../Controller/apiController.js";
+import {addBook,getBook,updateBook,getByID} from '../Controller/apiController.js'
 
 const Router = express.Router()
 
@@ -16,7 +11,7 @@ Router.get("/api/books/:id", getByID);
 Router.post("/api/books", addBook);
 
 //PUT
-Router.put("/api/books/:id", update);
+Router.put("/api/books/:id", updateBook);
 
 
 export default Router

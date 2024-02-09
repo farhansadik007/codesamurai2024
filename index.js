@@ -1,9 +1,11 @@
 import express from "express"
 import bodyParser from "body-parser"
 import Cors from 'cors'
-import Connection from "./database.js"
-import Router from "./Router/route.js"
+
+
 import dotenv from 'dotenv'
+import Router from './src/Router/route.js'
+import Connection from './database.js'
 
 dotenv.config();
 

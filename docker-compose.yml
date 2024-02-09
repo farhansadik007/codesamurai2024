@@ -13,7 +13,7 @@ services:
     ports:
       - "8000:8000"
     environment:
-      PORT: 3000
+      PORT: 8000
       MONGODB_URI: mongodb+srv://cluster0.ipslowf.mongodb.net/
       DB_NAME: test
       NAME: farhanachowdhury2152001
