@@ -2,10 +2,11 @@ import express from "express"
 import bodyParser from "body-parser"
 import Cors from 'cors'
 
+import Connection from "./database.js"
 
 import dotenv from 'dotenv'
-import Router from './src/Router/route.js'
-import Connection from './database.js'
+import router from "./src/Router/router.js"
+
 
 dotenv.config();
 
@@ -15,7 +16,7 @@ app.use(Cors())
 app.use(bodyParser.json({ extended: true, limit: 52428800 }))
 app.use(bodyParser.urlencoded({ extended: true, limit: 52428800 }))
 
-app.use('/', Router)
+app.use('/', router)
 
 
 app.listen(8000, () => {
