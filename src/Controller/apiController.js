@@ -3,7 +3,7 @@ import bookModel from "../Model/BookModel.js";
 
 
 // add a Book
-export const addBook = async (req, res) => {
+const addBook = async (req, res) => {
     try {
         const newBook = new bookModel(req.body);
         newBook.save();
@@ -14,13 +14,11 @@ export const addBook = async (req, res) => {
 
     }
 }
-
-
-export const updateBook = async (req, res) => {
+const updateBook = async (req, res) => {
 
     const id = req.params.id;
     try {
-        
+
         const data = await bookModel.find({ id: id });
 
         if (data.length > 0) {
@@ -36,7 +34,7 @@ export const updateBook = async (req, res) => {
     }
 
 }
-export const getByID = async (req, res) => {
+const getByID = async (req, res) => {
     const id = req.params.id;
     try {
 
@@ -57,7 +55,7 @@ export const getByID = async (req, res) => {
     }
 
 }
-export const getBook = async (req, res) => {
+const getBook = async (req, res) => {
     try {
         const queryParameters = {};
         const { title, author, price, genre, sort, order } = req.query;
@@ -88,38 +86,17 @@ export const getBook = async (req, res) => {
 
         const data = await bookModel.find(queryParameters).sort(sortCriteria).sort(orderCriteria);
         res.status(200).json({ books: data });
-
-
-        // const title = req.query.title;
-        // if (req.query) {
-        //     console.log(req.query.sort)
-        //     const data = await bookModel.find({})?.sort({ [req.query.sort]: 1 });
-        //     res.status(200).json(data);
-        // }
-
-        // else if (req.query.author) {
-        //     console.log(req.query.sort)
-        //     const data = await bookModel.find({ author: req.query.author })?.sort({ [req.query.sort]: 1 });
-        //     res.status(200).json(data);
-        // }
-
-        // else {
-        //     if (req.query.order) {
-        //         console.log(req.query.order)
-
-        //         const data = await bookModel.find({}).sort({ "id": -1 });
-        //         res.status(200).json(data);
-        //     }
-        //     else {
-        //         const data = await bookModel.find({})
-        //         res.status(200).json(data);
-        //     }
-        // }
-
     }
     catch (error) {
         res.status(500).json(error);
     }
 
+}
+
+export const apiController = {
+    addBook,
+    updateBook,
+    getBook,
+    getByID
 }
 
