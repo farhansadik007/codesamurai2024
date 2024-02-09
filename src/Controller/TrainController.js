@@ -17,8 +17,8 @@ export const addTrain = async (req, res) => {
                 "service_start": service_start,
                 "service_ends": service_ends,
                 "num_stations": num_stations,
-               }
-               
+            }
+
         )
     }
     catch (error) {
